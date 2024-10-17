@@ -23,7 +23,7 @@ static size_t	ft_scount(char const *s, char c)
 	{
 		while (s[i] != c && s[i] != '\0')
 			i++;
-		if (s[i] != '\0')
+		if (s[i] == c)
 		{
 			count++;
 			while (s[i] != c && s[i] != '\0')
@@ -36,11 +36,17 @@ static size_t	ft_scount(char const *s, char c)
 static size_t	ft_stl(char const *s, char c)
 {
 	size_t	i;
+ size_t j;
 
 	i = 0;
-	while (s[i] != c && s[i] != '\0')
+ j = 0;
+	while (s[i + j] != c && s[i + j] != '\0')
 		i++;
-	return (i);
+ if (s[i + j] == c)
+  i = 0;
+  j++;
+ 
+	return (i + j);
 }
 
 static char	*ft_copy(char const *s, char c)
