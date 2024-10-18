@@ -6,7 +6,7 @@
 /*   By: cabo-ram <cabo-ram@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:30:48 by cabo-ram          #+#    #+#             */
-/*   Updated: 2024/10/11 11:47:55 by cabo-ram         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:27:47 by cabo-ram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
-	if (little == NULL)
+	if (*little == '\0')
 		return ((char *)big);
-	while (big[i + j] != '\0' && i + j < len)
+	i = 0;
+	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (little[j] == big[i + j] && i + j < len)
+		while (little[j] == big[i + j] && (i + j) < len)
+		{
 			j++;
-		if (little[j] == '\0')
-			return ((char *)big + i);
+			if (little[j] == '\0')
+				return ((char *)(big + i));
+		}
 		i++;
 	}
 	return (NULL);

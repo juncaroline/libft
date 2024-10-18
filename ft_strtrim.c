@@ -17,19 +17,26 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	size_t	i;
 	size_t	j;
+	size_t	n;
 
 	i = 0;
 	j = ft_strlen(s1);
+	n = 0;
+	if (s1 == NULL)
+		return (NULL);
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	while (ft_strchr(set, s1[j - 1]) && j > i)
+		j--;
 	str = (char *)malloc(sizeof(char) * (j - i + 1));
 	if (str == NULL)
 		return (NULL);
-	if (s1 != 0 && set != 0)
+	while (i < j)
 	{
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j > i)
-			j--;
-		ft_strlcpy(str, &s1[i], j - i + 1);
+		str[n] = s1[i];
+		n++;
+		i++;
 	}
+	str[n] = '\0';
 	return (str);
 }

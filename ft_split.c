@@ -23,7 +23,7 @@ static size_t	ft_scount(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		if (s[i] != '\0')
+		if (s[i] != c && s[i] != '\0')
 			count++;
 		while (s[i] != c && s[i] != '\0')
 			i++;
@@ -31,19 +31,22 @@ static size_t	ft_scount(char const *s, char c)
 	return (count);
 }
 
-static char	*ft_memsst(char const *s, size_t i)
+static char	*ft_memsst(char const *s, size_t i, size_t j)
 {
 	char	*sst;
+	size_t	n;
 
-	sst = (char *)malloc(sizeof(char) * (i + 1));
+	sst = (char *)malloc(sizeof(char) * (i - j + 1));
 	if (sst == NULL)
 		return (NULL);
-	while (s[i] != '\0')
+	n = 0;
+	while (j < i)
 	{
-		sst[i] = s[i];
-		i++;
+		sst[n] = s[j];
+		n++;
+		j++;
 	}
-	sst[i] = '\0';
+	sst[n] = '\0';
 	return (sst);
 }
 
@@ -68,7 +71,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (i > j)
 		{
-			memalloc[k] = ft_memsst(s + j, i - j);
+			memalloc[k] = ft_memsst(s, i, j);
 			k++;
 		}
 	}

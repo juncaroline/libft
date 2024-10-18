@@ -6,7 +6,7 @@
 /*   By: cabo-ram <cabo-ram@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:07:39 by cabo-ram          #+#    #+#             */
-/*   Updated: 2024/10/10 13:15:21 by cabo-ram         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:19:11 by cabo-ram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if ((unsigned char)s[i] == (unsigned char)c)
 			return ((char *)(s + i));
 		i--;
 	}

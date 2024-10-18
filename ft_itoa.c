@@ -41,16 +41,16 @@ static char	*memalloc(int length)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_nbr(long num)
 {
 	int		i;
 	int		length;
-	long	num;
 	char	*str;
 
-	num = n;
 	length = ft_len(num);
 	str = memalloc(length);
+	if (str == NULL)
+		return (NULL);
 	if (num == 0)
 	{
 		str[0] = '0';
@@ -67,5 +67,17 @@ char	*ft_itoa(int n)
 		str[i--] = (num % 10) + '0';
 		num = num / 10;
 	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	int		length;
+	long	num;
+	char	*str;
+
+	num = n;
+	length = ft_len(num);
+	str = ft_nbr(num);
 	return (str);
 }
