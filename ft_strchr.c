@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cabo-ram <cabo-ram@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: cabo-ram <cabo-ram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:10:03 by cabo-ram          #+#    #+#             */
-/*   Updated: 2024/10/10 13:16:39 by cabo-ram         ###   ########.fr       */
+/*   Updated: 2024/10/22 14:12:02 by cabo-ram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *s, int c)
 
 	i = 0;
 	nc = (char) c;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] == nc)
 			return ((char *)(s + i));

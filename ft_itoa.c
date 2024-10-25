@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cabo-ram <cabo-ram@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: cabo-ram <cabo-ram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:17:10 by cabo-ram          #+#    #+#             */
-/*   Updated: 2024/10/15 11:22:54 by cabo-ram         ###   ########.fr       */
+/*   Updated: 2024/10/25 11:15:36 by cabo-ram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,10 @@ static char	*ft_nbr(long num)
 
 char	*ft_itoa(int n)
 {
-	int		length;
 	long	num;
 	char	*str;
 
 	num = n;
-	length = ft_len(num);
 	str = ft_nbr(num);
 	return (str);
 }
